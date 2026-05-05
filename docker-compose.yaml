@@ -1,0 +1,31 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: server-demo-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+
+  server:
+    build: ./backend-api
+    container_name: server-demo-api
+    env_file:
+      - ./.env
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend-logs:/server/logs
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:17
+    container_name: server-demo-postgres
+    env_file:
+      - ./.env
+    volumes:
+      - pqdata:/var/lib/postgresql/data
+
+volumes:
+  pqdata:

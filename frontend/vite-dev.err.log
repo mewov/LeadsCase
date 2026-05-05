@@ -1,0 +1,4 @@
+[2m19:25:20[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/admin/login[39m
+AggregateError [EACCES]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
